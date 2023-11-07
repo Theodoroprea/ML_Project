@@ -1,0 +1,46 @@
+Board Game Prediction Project
+
+Preprocessing:
+
+1) For linear regression, look into if any data seems to be off.
+For example:
+- min_player > max_player (this shouldn't be possible, if it is, switch the min_player with max_player)
+- min_time > max_time (shouldn't be possible, flip)
+- If avg_rating == 0, drop that data
+
+- Scramble all of the data.
+- Remove any columns that we don't care about, for example, "id", "name", "geek_rating"...
+- Check if necessary, drop rows with missing data.
+- To find what variables we want to compare, lets make a heat map:
+	plt.figure(figsize = (10,6)) # Adjusting figure size.
+	ns.heatmap(df.corr()) # Displays heatmap of correlations between variables in ‘df’.
+This is from (https://medium.com/analytics-vidhya/board-game-rating-prediction-using-linear-regression-random-forest-regression-in-python-e9a63480090f).
+
+
+2) For the image, we need to download all of the images, we can do this in another script:
+ - Download the csv with all the boardgames
+ - (using import requests)
+ 	for each bg in boardgames:
+
+	# URL of the image you want to download
+	image_url = "bg.image_url"
+
+	# Send an HTTP GET request to the image URL
+	response = requests.get(image_url)
+
+	# Check if the request was successful (status code 200)
+	if response.status_code == 200:
+	    # Get the image content
+	    image_data = response.content
+	    
+	    # Specify the local file path where you want to save the image
+	    local_file_path = f"./bg_images/{bg.name}_image.jpg"
+
+	    # Write the image content to the local file
+	    with open(local_file_path, 'wb') as file:
+	        file.write(image_data)
+
+
+If the image url is not a 200, maybe we remove this from our data set?
+
+3) Build models!
