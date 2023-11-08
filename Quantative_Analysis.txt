@@ -1,0 +1,19 @@
+Hypothesis:
+- Age vs owned => Teen games pref
+- Age vs # votes => Teen games have the most # of votes
+- As the weight goes up, so does avg time, makes sense, more complex.
+- As weight goes up, so does the avg rating, does this mean more complex = better?
+
+Looking at owners_v_rating we can see that there are more owners where the avg rating is high (7.0 to 8.25 have the highest num votes).
+This makes sense since people will probably buy the higher rated games.
+
+This being said, we have an issue with this. Here is a problem. Doesn't matter how many owners a game has, what if
+only 1 person rated that game a perfect 10. That would make the avg rating a 10, but doesn't really encapsulate everyone.
+
+Because of the problem above, we have to make it so there is a threshhold: if there are num_votes > 5000 set to 1 else set to 0.
+This can be seen in the num_votes_v_rating. The best game will be the one that has the highest avg_rating & that belongs to the
+subset where num_votes > 5000 (the orange datapoints in the plot).
+
+Previously mentioned that as weight goes up, so does tje avg_rating, but as we can see in weight_v_rating_5000, where the orange
+dots are games that have more than 5000 reviews. As can be seen, not a lot have above 5000 reviews.
+We can also look at weight_v_rating_1000, where the threshold is 1000, and still we can confirm this hypothesis.
