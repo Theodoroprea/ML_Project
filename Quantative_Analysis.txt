@@ -17,3 +17,31 @@ subset where num_votes > 5000 (the orange datapoints in the plot).
 Previously mentioned that as weight goes up, so does tje avg_rating, but as we can see in weight_v_rating_5000, where the orange
 dots are games that have more than 5000 reviews. As can be seen, not a lot have above 5000 reviews.
 We can also look at weight_v_rating_1000, where the threshold is 1000, and still we can confirm this hypothesis.
+
+Which variables to use?
+
+To visualize the corrolation between the different variables, we can look at the confusion matrix.
+We notice that the following have the most corrolation with avg_rating:
+- age (for what age group is the game made)
+- weight (weight of game)
+- owned (how many games are owned in the world)
+- avg_time (average time of games)
+- num_votes (how many number of votes a game has)
+
+Data preprocessing:
+
+Drop the following columns:
+['names','rank', 'bgg_url', 'geek_rating', 'game_id', 'mechanic', 'category', 'designer', 'image_url']
+This is because they are useless for our predictions.
+
+Drop any columns that have missing info.
+Drop the avg_rating from the data, and make the avg_rating the labels.
+
+What models are we using for quantative?
+
+- Random Forest Regressor: when run on the test data, we get a mse of 0.1208
+
+- MLP: when run on the test data, we get a mse of 0.152
+
+MSE: MSE is used to evaluate the performance of a predictive model or an estimator by measuring the average of the squares of the errors, which are the differences between the actual and predicted values.
+A low MSE suggests that the model has learned the underlying patterns in the data well. The predicted values are, on average, close to the actual values. The lower the MSE the higher the accuracy of the model.
