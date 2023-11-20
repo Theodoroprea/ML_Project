@@ -1,7 +1,6 @@
 
 from preprocess import data_preprocess
 
-
 def main():
     # input_answer = int(input("Would you like to predict a boardgame based on it's (1) box art or (2) quantitive attributes?\n"))
     input_answer = 2;

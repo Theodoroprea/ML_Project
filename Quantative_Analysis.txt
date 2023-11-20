@@ -14,8 +14,7 @@ Because of the problem above, we have to make it so there is a threshhold: if th
 This can be seen in the num_votes_v_rating. The best game will be the one that has the highest avg_rating & that belongs to the
 subset where num_votes > 5000 (the orange datapoints in the plot).
 
-Previously mentioned that as weight goes up, so does tje avg_rating, but as we can see in weight_v_rating_5000, where the orange
-dots are games that have more than 5000 reviews. As can be seen, not a lot have above 5000 reviews.
+Previously mentioned that as weight goes up, so does tje avg_rating, but as we can see in weight_v_rating_5000, where the orange dots are games that have more than 5000 reviews. As can be seen, not a lot have above 5000 reviews.
 We can also look at weight_v_rating_1000, where the threshold is 1000, and still we can confirm this hypothesis.
 
 Which variables to use?
