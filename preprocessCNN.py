@@ -6,12 +6,12 @@ from io import BytesIO
 
 def cnn_data_preprocess():
     # Ensure 'data' directory exists
-    data_directory = 'data'
+    data_directory = 'data/imgs'
     if not os.path.exists(data_directory):
         os.makedirs(data_directory)
 
     # Load the dataset, get image urls and respective user ratings
-    dataset = pd.read_csv('dataset.csv') # Original dataset downloaded from kaggle.com
+    dataset = pd.read_csv('data/bgg_db_1806.csv') # Original dataset downloaded from kaggle.com
     image_urls = dataset['image_url'].tolist()
     ratings = dataset['avg_rating'].tolist()
 

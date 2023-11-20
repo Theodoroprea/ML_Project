@@ -10,7 +10,7 @@ from datetime import datetime
 
 def bgg_rating():
     # Ensure 'data' directory exists
-    data_directory = 'data'
+    data_directory = 'data/imgs'
     if not os.path.exists(data_directory):
         raise FileNotFoundError(f"The '{data_directory}' directory does not exist.")
 

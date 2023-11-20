@@ -1,3 +1,4 @@
+import os
 from bgg_rating import bgg_rating
 from preprocess import quant_data_preprocess
 from preprocessCNN import cnn_data_preprocess
@@ -7,7 +8,8 @@ def main():
     input_answer = int(input("Would you like to predict a boardgame based on it's (1) box art or (2) quantitive attributes?\n"))
     
     if input_answer == 1:
-        cnn_data_preprocess()
+        if not os.path.exists('data/imgs'):
+            cnn_data_preprocess()
         bgg_rating()
     elif input_answer == 2:
         X_train, X_test, y_train, y_test = quant_data_preprocess()

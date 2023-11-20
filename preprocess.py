@@ -1,12 +1,8 @@
 import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
-from sklearn.ensemble import RandomForestRegressor
-from sklearn.metrics import mean_squared_error
-from sklearn.model_selection import GridSearchCV, KFold, train_test_split
-from sklearn.neural_network import MLPRegressor
+from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import MinMaxScaler
-import warnings
 
 def quant_data_preprocess():
     df = pd.read_csv('./data/bgg_db_1806.csv')
@@ -52,7 +48,7 @@ def quant_data_preprocess():
     # sns.scatterplot(x='avg_rating',y='weight',data=df,hue = 'new_num_votes',legend = 'full')
     # plt.show()
     
-    X = df.drop(['num_votes', 'owned','avg_rating'], axis=1) # Everything but the avg_rating
+    X = df.drop(['num_votes', 'owned', 'avg_rating'], axis=1)
     y = df['avg_rating'] # Labels are the avg_ratings
     
     # Transform into numpy arrays
